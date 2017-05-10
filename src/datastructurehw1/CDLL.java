@@ -1,5 +1,6 @@
 package datastructurehw1;
 
+import java.util.Iterator;
 public class CDLL {
 	
 
@@ -15,9 +16,10 @@ public class CDLL {
 		
 			Node node1 = new Node();
 			node1.data = data;
+			//System.out.println("node1:" + node1.data);
 			node1.next = head;
 			head = node1;
-			
+			//System.out.println("head: " + head.data);
 			size++;
 				
 			//System.out.println("size: " + size);
@@ -83,36 +85,40 @@ public class CDLL {
 			//System.out.println("DELETE");
 			Node current = head;
 			//System.out.println("data:" + data);
-			//System.out.println("current: " + current);
+			
 			
 			if(current == null){
+				
 				head = new Node();
+				if(head.data == 0){
+					head = null;
+				}
 				size--;
 				return false;			
 			}
-			
+		
 			if(current.data == data){
 				head = current.next;
-				//System.out.println("current1: " + current);
+				//System.out.println("current1A: " + current);
 				current = null;
-				//System.out.println("current1: " + current);
+				//System.out.println("current1B: " + current);
 				return true;
 			}
 			current = head.next;
-			//System.out.println("current2: " + head.next);
+		//	System.out.println("current2: " + head.next);
 			Node lastNum = head;
-			//System.out.println("current3: " + lastNum);
+		//	System.out.println("current3: " + lastNum);
 			while (current != null){
 				if (current.data == data){
 					lastNum.next = current.next;
-					//System.out.println("lastNum.next: " + lastNum.next);
+			//		System.out.println("lastNum.next: " + lastNum.next);
 					current = null;
 					return true;
 				}
 				current = current.next;
-				//System.out.println("head: " + head);
+			//	System.out.println("head: " + head);
 				lastNum = lastNum.next;
-				//System.out.println("lastNum: " + lastNum);
+			//	System.out.println("lastNum: " + lastNum);
 			}
 			//System.out.println("----------------");
 			return false;
@@ -149,8 +155,8 @@ public class CDLL {
 			  
 			  if (currentNode == null) {
 			  System.out.println("null");
-			} else {
-			  
+			  } 
+			 else { 
 			while (currentNode != null) {
 			  System.out.println(currentNode.data);
 			  currentNode = currentNode.next;
@@ -166,16 +172,16 @@ public class CDLL {
 	     */
 
 		public void printReverse(CDLL inputList){
-			Node previousNode = inputList.head;
-			  inputList.head = head.previous;
-			  if (previousNode == null) {
-			  System.out.println("null");
-			} else {
-			  
-			while (previousNode != null) {
-			  System.out.println(previousNode.data);
-			  previousNode = previousNode.previous;
-			  }
+			Node lastNode = inputList.head;
+			while (lastNode.next != null) {
+				lastNode = lastNode.next;
 			}
+			lastNode.next = inputList.head;
+			inputList.head = inputList.head.next;
+		
+			
+			print(inputList);
+	
+			
 		}
-		}
+}
