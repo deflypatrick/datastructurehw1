@@ -27,14 +27,13 @@ public class CDLLTester
         			else{
         				System.out.println("Node 5 was not deleted");
         				}
-        list.print();
-        
+        list.print(list);
         /* Testing insert and print methods. */
         list.insert(9);
         list.insert(0);
         list.insert(3);
         list.insert(4);
-        list.print();
+        list.print(list);
    
 
         /* Testing search method. */
@@ -45,7 +44,7 @@ public class CDLLTester
         			else{
         				System.out.println("Node 3 was found");
         				}
-        list.print();
+        list.printReverse(list);
 
         findNode = list.search(5);
         
@@ -55,7 +54,9 @@ public class CDLLTester
         			else{
         				System.out.println("Node 5 was found");
         				}
-        list.print();
+        
+        	list.print(list);
+        
 
         /* Testing update and delete methods */
         	if (list.update(0, 1) == true){
@@ -66,7 +67,7 @@ public class CDLLTester
         							System.out.println("Update of node 0 to 1 not successful");
         							System.out.println("Current node value is: " + list.getCurrent().data);
         					}
-        							list.print();
+        							list.printReverse(list);
         	if (list.update(10, 1) == true){
         			System.out.println("Update of node 10 to 1 successful");
         		}
@@ -79,7 +80,7 @@ public class CDLLTester
         					else{
         							System.out.println("Node 5 was not deleted");
         					}
-        							list.print();
+        							list.print(list);
         						
         	if (list.delete(4) == true){
         			System.out.println("Node 4 was deleted");
@@ -87,7 +88,7 @@ public class CDLLTester
         					else{
         							System.out.println("Node 4 was not deleted");
         						}
-        							list.print();
+        							list.print(list);
     }
 }
     /*
@@ -134,3 +135,4 @@ public class CDLLTester
     9
 
     */
+
